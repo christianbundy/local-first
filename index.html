@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html>
-	<body>
+  <body>
 
-		<h1>Local-First Counter</h1>
+    <h1>Local-First Persistent Counter</h1>
 
-		<p>Open-source web apps are great, but downloading the app from a website every time you use it has a few big drawbacks.</p>
+    <p>Open-source web apps are great, but downloading the app from a website every time you use it has a few big drawbacks.</p>
 
-		<ul>
-			<li>server administrator(s) can change the code at any time</li>
-			<li>server administrator(s) can <em>at least</em> see your usage metadata</li>
+    <ul>
+      <li>server administrator(s) can change the code at any time</li>
+      <li>server administrator(s) can <em>at least</em> see your usage metadata</li>
       <li>others on your network can see your DNS queries</li>
       <li>http(s):// is slow, expensive, and insecure compared to file://</li>
-			<li>probably a bunch of other reasons</li>
-		</ul>
+      <li>probably a bunch of other reasons</li>
+    </ul>
 
-		<p>Instead, you should just <a class="download" href="." download>download this application</a> and run it locally.
+    <p>Instead, you should just <a class="download" href="." download>download this application</a> and run it locally.</p>
 
-			<p>You can test out the application below, but you should know that trusting arbitrary code from a remote server is a bad idea.</p>
+    <p>You can test out the application below, but you should know that trusting arbitrary code from a remote server is a bad idea.</p>
 
-			<noscript>
-				<strong>Note</strong>: you have JavaScript disabled. Maybe you'd be more comfortable enabling JavaScript if you were running this app locally?
-			</noscript>
+    <ul>
+      <li>JavaScript is required</li>
+      <li>clicking i++ increments the number at the bottom of the page</li>
+      <li>the number at the bottom of the page persists via <a href="https://www.w3.org/TR/webstorage/">web storage</a></li>
+    </ul>
 
-			<button type="button" onClick="increment()">i++</button>
+      <noscript>
+        <strong>Note</strong>: you have JavaScript disabled. Maybe you'd be more comfortable enabling JavaScript if you were running this app locally?
+      </noscript>
 
-			<p id="i">0</p>
+      <button type="button" onClick="increment()">i++</button>
 
-			<script type="text/javascript">
-				var i = localStorage.getItem('i');
-				document.getElementById('i').innerHTML = i;
+      <p id="i">0</p>
 
-				function increment() {
-					localStorage.setItem('i', ++i);
-					document.getElementById('i').innerHTML = i;
-				};
-			</script>
-		</body>
-	</html>
+      <script type="text/javascript">
+        var i = localStorage.getItem('i');
+        document.getElementById('i').innerHTML = i;
+
+        function increment() {
+          localStorage.setItem('i', ++i);
+          document.getElementById('i').innerHTML = i;
+        };
+      </script>
+    </body>
+  </html>
